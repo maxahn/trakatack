@@ -1,0 +1,15 @@
+current directory: /Users/Eve/Desktop/projects/pf-assistant/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+/Users/Eve/.rvm/rubies/ruby-2.5.0/bin/ruby -r ./siteconf20180206-56956-6koj0m.rb extconf.rb
+creating Makefile
+
+current directory: /Users/Eve/Desktop/projects/pf-assistant/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/Eve/Desktop/projects/pf-assistant/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/Eve/Desktop/projects/pf-assistant/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20180206-56956-18rha1b/bindex
