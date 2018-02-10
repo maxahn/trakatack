@@ -1,0 +1,15 @@
+current directory: /Users/Eve/Desktop/projects/pf-assistant/vendor/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20180210-54509-94vos6.rb extconf.rb
+creating Makefile
+
+current directory: /Users/Eve/Desktop/projects/pf-assistant/vendor/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/Eve/Desktop/projects/pf-assistant/vendor/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/Eve/Desktop/projects/pf-assistant/vendor/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20180210-54509-1y7anfo
