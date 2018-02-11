@@ -1,0 +1,17 @@
+<%= form_with(model: work_period, local: true) do |form| %>
+  <% if work_period.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work_period.errors.count, "error") %> prohibited this work_period from being saved:</h2>
+
+      <ul>
+      <% work_period.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

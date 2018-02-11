@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :work_periods
+  resources :tasks
   resources :users
   get 'welcome/index'
 
