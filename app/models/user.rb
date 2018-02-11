@@ -9,4 +9,8 @@ class User < ApplicationRecord
     format: { with: VALID_EMAIL_REGEX }
 
   enum rank: [ :bronze, :silver, :gold, :platinum, :diamond ]
+
+  def active_tasks
+    tasks.where("user_id = ? AND active = ?", params[:id, true]).order(:priority :desc)
+  end
 end
