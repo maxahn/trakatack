@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211034452) do
+ActiveRecord::Schema.define(version: 20180213131254) do
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "user_id" #TODO: cannot be null
     t.string "description", null: false
     t.boolean "active", default: true
-    t.integer "score"   #will only be calculated after active is set to false
+    t.integer "score"
     t.integer "priority"
     t.boolean "repeating", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "estimated_duration", null: false
     t.datetime "due_date"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
