@@ -16,7 +16,28 @@
     <%= form.text_field :description, id: :task_description %>
   </div>
 
+  <div class="field">
+    <%= form.label :estimate_length_of_task %>
+    <%= form.number_field :estimated_duration, id: :estimated_duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :due_date %>
+    <%= select_datetime DateTime.now, prefix: :due_date%>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.select :priority, Task.priorities.keys %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>

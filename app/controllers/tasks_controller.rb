@@ -4,12 +4,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
-  end
-
-  # GET /tasks/1
-  # GET /tasks/1.json
-  def show
+     @tasks = Task.all
+     user = User.find(params[:user_id])
+     @tasks = user.active_tasks
   end
 
   # GET /tasks/new
@@ -69,6 +66,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:description, :active, :score)
+      params.require(:task).permit(:description, :estimated_duration, :priority, :user_id, :due_date)
     end
 end
