@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 20180211034452) do
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id" #TODO: cannot be null
     t.string "description", null: false
     t.boolean "active", default: true
-    t.integer "score"
+    t.integer "score"   #will only be calculated after active is set to false
     t.integer "priority"
     t.boolean "repeating", default: false
     t.datetime "created_at", null: false
