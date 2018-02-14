@@ -26,6 +26,7 @@
   <% @user.tasks.each do |task|%>
     <div class='task-item'>
       <strong><%= task.description %></strong>
+      (Hours left: <%=(task.estimated_duration / 3600).floor%>, minutes left: <%=(task.estimated_duration / 60).ceil %>)
       <a href="" class='start btn btn-primary'>Complete</a>
       <a href="" class='start btn btn-primary'>Start</a>
     </div>

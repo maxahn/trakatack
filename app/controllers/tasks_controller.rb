@@ -71,7 +71,7 @@ class TasksController < ApplicationController
     end
   end
   def complete 
-    @task.active? = false
+    @task.active = false
     if @task.update(task_params)
       format.html { redirect_to @task, notice: 'Task was successfully updated.' }
       format.json { render :show, status: :ok, location: @task }
