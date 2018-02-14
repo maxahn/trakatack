@@ -1,43 +1,11 @@
 <%= simple_form_for([user, task]) do |form| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :task_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :estimate_length_of_task %>
-    <%= form.number_field :estimated_duration, id: :estimated_duration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_date %>
+  <%= form.input :description %>
+  <%= form.input :estimated_duration, as: :time%>
+  <%= form.input :due_date, as: :datetime, placeholder: DateTime.now %>
+  <% if false %>
     <%= select_datetime DateTime.now, prefix: :due_date%>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.select :priority, Task.priorities.keys %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <% end %>
+  <%= form.input :priority, collection: Task.priorities.keys, selected: Task.priorities.keys[1] %> 
+  <%= form.button :submit, class: "btn-primary" %>
 
 <% end %>

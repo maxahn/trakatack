@@ -1,3 +1,5 @@
+require 'date'
+
 class TasksController < ApplicationController
   before_action :set_user
 
@@ -5,7 +7,6 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
      @tasks = Task.all
-     user = User.find(params[:user_id])
      @tasks = user.active_tasks
   end
 
@@ -21,14 +22,27 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    duration_in_seconds = task_params["estimated_duration(4i)"].to_i * 3600 + task_params["estimated_duration(4i)"].to_i * 60
+    due_date = DateTime.new(task_params["due_date(1i)"].to_i, 
+                        task_params["due_date(2i)"].to_i, 
+                        task_params["due_date(3i)"].to_i, 
+                        task_params["due_date(4i)"].to_i, 
+                        task_params["due_date(5i)"].to_i)
+    @task = Task.new(description: task_params["description"], 
+                     active: true,
+                     priority: task_params["priority"],
+                     estimated_duration: duration_in_seconds,
+                     due_date: due_date,
+                     user_id: @user.id 
+                    )
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to @user, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
+        flash.now[:error] = @task.errors.full_messages + :user_id
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -67,4 +81,17 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:description, :estimated_duration, :priority, :user_id, :due_date)
     end
+
+    def seconds_to_time(s)
+      if (s)
+        Time.new(0, 1, 1, (s / 3600).floor, (s % 3600) / 60)    #TODO: make pretty
+      end
+    end
+
+    def time_to_seconds(t)
+      if (t)
+        t.hour * 3600 + t.min * 60
+      end
+    end
+
 end

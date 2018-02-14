@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <div class="page-header">
   <h1><%= @user.first_name %></h1>
   <ul class="actions">
+    <li><%= link_to " New Task", new_user_task_url(@user), class: "new"%></li>
     <li><%= link_to " Edit", edit_user_path(@user), class: "edit"%></li>
     <li><%= link_to " Delete", 
       user_path(@user), 
@@ -20,5 +19,6 @@
   <strong>Daily hours:</strong>
   <%= @user.daily_hours %>
 </p>
+
 
 

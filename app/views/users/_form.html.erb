@@ -7,33 +7,4 @@
   <%= form.input :daily_hours %>
   <%= form.button :submit, class: "btn-primary" %>
 
-  <%if false%>
-  <div class="field">
-    <%= form.label :first_name, "First Name" %>
-    <%= form.text_field :first_name, id: :user_first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, id: :user_password%>
-  </div>
-  <div class="field">
-    <%= form.label :password_confirmation, "Password Confirmation" %>
-    <%= form.password_field :password_confirmation, id: :user_password_confirmation%> 
-  </div>
-
-  <div class="field">
-    <%= form.label :daily_hours %>
-    <%= form.number_field :daily_hours, id: :user_daily_hours %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-  <%end%>
 <% end %>
