@@ -6,8 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-     @tasks = Task.all
-     @tasks = user.active_tasks
+    @tasks = Task.all.where(user_id: @user.id, active: true)
   end
 
   # GET /tasks/new
@@ -71,6 +70,18 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def complete 
+    @task.active? = false
+    if @task.update(task_params)
+      format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+      format.json { render :show, status: :ok, location: @task }
+    else
+      format.html { render :task }
+      format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+
+
+  end
 
   private
     def set_user
@@ -93,5 +104,6 @@ class TasksController < ApplicationController
         t.hour * 3600 + t.min * 60
       end
     end
+
 
 end

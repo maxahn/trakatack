@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :work_periods
   resources :users do 
-    resources :tasks#, only: [:index, :show, :new, :create, :edit]
+    resources :tasks do #, only: [:index, :show, :new, :create, :edit]
+      resources :work_periods
+    end
   end
   root "users#index"
   #get 'welcome/index'

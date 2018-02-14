@@ -16,8 +16,20 @@
   <strong>Email:</strong>
   <%= @user.email %>
   <br/>
-  <strong>Daily hours:</strong>
+  <strong>Estimated Work remaining:</strong>
   <%= @user.daily_hours %>
+  <br/>
+
+
+  <h3>Tasks</h3>
+  </br>
+  <% @user.tasks.each do |task|%>
+    <div class='task-item'>
+      <strong><%= task.description %></strong>
+      <a href="" class='start btn btn-primary'>Complete</a>
+      <a href="" class='start btn btn-primary'>Start</a>
+    </div>
+  <% end %>
 </p>
 
 
